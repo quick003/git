@@ -1,9 +1,17 @@
 FROM centos:7
-#install httpd (web server)
-RUN yum -y update
-RUN yum -y install httpd
-# home page copy from /home/index.html
-COPY * /var/www/html/
+
+# Install httpd (web server)
+RUN yum -y update && yum -y install httpd
+
+# Download and extract the zip file
+RUN yum -y install wget unzip
+WORKDIR /tmp
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/inance.zip \
+    && unzip inance.zip -d /var/www/html/ \
+    && rm inance.zip
+
+# Expose port 80
 EXPOSE 80
-#start web server
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+
+# Start web server
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
