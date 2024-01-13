@@ -3,7 +3,7 @@ FROM centos:7
 RUN yum -y update
 RUN yum -y install httpd
 # home page copy from /home/index.html
-COPY index.html /var/www/html/
+COPY * /var/www/html/
 EXPOSE 80
 #start web server
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
