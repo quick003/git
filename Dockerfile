@@ -6,9 +6,9 @@ RUN yum -y update && yum -y install httpd
 # Download and extract the zip file
 RUN yum -y install wget unzip
 WORKDIR /tmp
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/carvilla.zip \
-    && unzip carvilla.zip -d /var/www/html/ \
-    && rm carvilla.zip
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/neogym.zip \
+    && unzip neogym.zip -d /var/www/html/ \
+    && rm neogym.zip
 
 # Expose port 80
 EXPOSE 80
