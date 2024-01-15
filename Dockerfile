@@ -6,9 +6,9 @@ RUN yum -y update && yum -y install httpd
 # Download and extract the zip file
 RUN yum -y install wget unzip
 WORKDIR /tmp
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/inance.zip \
-    && unzip inance.zip -d /var/www/html/ \
-    && rm inance.zip
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page296/carvilla.zip \
+    && unzip carvilla.zip -d /var/www/html/ \
+    && rm carvilla.zip
 
 # Expose port 80
 EXPOSE 80
